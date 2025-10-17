@@ -12,12 +12,12 @@ import com.example.xmlalg.databinding.ActivityMainBinding;
 import java.util.function.IntFunction;
 
 /**
- * Why: Keep UI glue thin and obvious. Use ViewBinding for type-safe view access,
+ * Keep UI glue thin and obvious. Use ViewBinding for type-safe view access,
  * and a tiny helper to avoid repeating the parse/validate pattern for integer inputs.
  */
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding; // Why: safer than findViewById; fewer null mistakes.
+    private ActivityMainBinding binding; // safer than findViewById; fewer null mistakes.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    /** Why: de-duplicate the common parse/validate/write pattern for integer tasks. */
+    /** de-duplicate the common parse/validate/write pattern for integer tasks. */
     private void runIntTask(EditText input, TextView out, IntFunction<String> task) {
         final Integer n = parseInt(safeText(input));
         final String msg = (n == null) ? "Enter a whole number (integer)." : task.apply(n);

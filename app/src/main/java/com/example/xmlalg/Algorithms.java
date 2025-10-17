@@ -5,18 +5,17 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Why: Pure functions only—keeps algorithms testable and reusable.
+ * Pure functions only—keeps algorithms testable and reusable.
  * No Android/UI dependencies and no global state.
  */
 public final class Algorithms {
     private Algorithms() {}
 
-    /** Why: clarity + performance; mirrors Kotlin's s.reversed(). */
     public static String reverseString(String s) {
         return new StringBuilder(s).reverse().toString();
     }
 
-    /** Why: avoid overflow (BigInteger) and guard inputs explicitly. */
+    /** avoid overflow (BigInteger) and guard inputs explicitly. */
     public static BigInteger factorialBig(int n) {
         if (n < 0) throw new IllegalArgumentException("n must be non-negative");
         BigInteger acc = BigInteger.ONE;
@@ -26,7 +25,7 @@ public final class Algorithms {
         return acc;
     }
 
-    /** Why: normalize to alphanumeric lowercase; users type punctuation/spaces. */
+    /** normalize to alphanumeric lowercase; users type punctuation/spaces. */
     public static boolean isPalindromeNormalized(String s) {
         final StringBuilder filtered = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
@@ -43,7 +42,7 @@ public final class Algorithms {
         return true;
     }
 
-    /** Why: functional-chain analog using streams; ignores non-numbers gracefully. */
+    /** functional-chain analog using streams; ignores non-numbers gracefully. */
     public static Double findMaxCsv(String csv) {
         return Arrays.stream(csv.split(","))
                 .map(String::trim)
@@ -57,7 +56,7 @@ public final class Algorithms {
         try { return Double.valueOf(s); } catch (NumberFormatException e) { return null; }
     }
 
-    /** Why: single pass count; mirrors Kotlin's count { ... }. */
+    /** single pass count; mirrors Kotlin's count { ... }. */
     public static int countVowels(String s) {
         return (int) s.chars()
                 .map(Character::toLowerCase)
@@ -65,7 +64,7 @@ public final class Algorithms {
                 .count();
     }
 
-    /** Why: standard iterative Fibonacci with explicit negative guard. */
+    /** standard iterative Fibonacci with explicit negative guard. */
     public static long fibonacciNth(int n) {
         if (n < 0) throw new IllegalArgumentException("n must be non-negative");
         if (n < 2) return n;
@@ -78,13 +77,13 @@ public final class Algorithms {
         return b;
     }
 
-    /** Why: O(1) closed form with guard; consistent with other input checks. */
+    /** O(1) closed form with guard; consistent with other input checks. */
     public static long sumToN(int n) {
         if (n < 0) throw new IllegalArgumentException("n must be non-negative");
         return (long) n * (n + 1L) / 2L;
     }
 
-    /** Why: bit test mirrors Kotlin's (n and 1) == 0 idiom. */
+    /** bit test mirrors Kotlin's (n and 1) == 0 idiom. */
     public static String evenOrOdd(int n) {
         return ((n & 1) == 0) ? "Even" : "Odd";
     }
