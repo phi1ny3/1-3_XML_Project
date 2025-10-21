@@ -21,7 +21,7 @@
     <!-- Palindrome -->
     <string name="title_palindrome">Check Palindrome</string>
     <string name="hint_palindrome">Race car</string>
-    <string name="yes_palindrome">Yes, it&#39;s a palindrome!</string>
+    <string name="yes_palindrome">Yes, it is a palindrome!</string>
     <string name="no_palindrome">No, not a palindrome.</string>
 
 

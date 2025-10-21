@@ -1,0 +1,33 @@
+<resources>
+    <!-- Brand / Primary -->
+    <color name="color_primary">#5FCF67</color>
+    <color name="color_on_primary">#002108</color>
+    <color name="color_primary_container">#124C17</color>
+    <color name="color_on_primary_container">#BDF8C0</color>
+
+    <!-- Secondary / Accent -->
+    <color name="color_secondary">#9FA2F0</color>
+    <color name="color_on_secondary">#0B0B2A</color>
+    <color name="color_secondary_container">#2E316C</color>
+    <color name="color_on_secondary_container">#E2E5FF</color>
+
+    <!-- Tertiary -->
+    <color name="color_tertiary">#CBB9FF</color>
+    <color name="color_on_tertiary">#1B0E40</color>
+    <color name="color_tertiary_container">#3B2A78</color>
+    <color name="color_on_tertiary_container">#EEE6FF</color>
+
+    <!-- Surfaces / Background -->
+    <color name="color_background">#121212</color>
+    <color name="color_surface">#1E1E1E</color>
+    <color name="color_on_surface">#E0E0E0</color>
+    <color name="color_surface_variant">#2A2A2A</color>
+    <color name="color_on_surface_variant">#BDBDBD</color>
+    <color name="color_outline">#777777</color>
+
+    <!-- Errors -->
+    <color name="color_error">#CF6679</color>
+    <color name="color_on_error">#2B0004</color>
+    <color name="color_error_container">#8C1D26</color>
+    <color name="color_on_error_container">#FFDAD6</color>
+</resources>
