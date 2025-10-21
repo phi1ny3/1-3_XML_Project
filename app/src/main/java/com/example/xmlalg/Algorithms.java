@@ -2,7 +2,7 @@ package com.example.xmlalg;
 
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.OptionalDouble;
 import java.util.Objects;
 
 /**
@@ -46,17 +46,15 @@ public final class Algorithms {
     /** functional-chain analog using streams; ignores non-numbers gracefully. */
 // inside Algorithms
     public static Double findMaxCsv(String csv) {
-        return Arrays.stream(csv.split(","))
+        OptionalDouble max = Arrays.stream(csv.split(","))
                 .map(String::trim)
-                .map(Algorithms::tryParseDouble)
-                .filter(Objects::nonNull)
-                .max(Comparator.naturalOrder())   // <- fixes nullability warning
-                .orElse(null);
-    }
-
-
-    private static Double tryParseDouble(String s) {
-        try { return Double.valueOf(s); } catch (NumberFormatException e) { return null; }
+                .mapToDouble(s -> {
+                    try { return Double.parseDouble(s); }
+                    catch (NumberFormatException e) { return Double.NaN; }
+                })
+                .filter(d -> !Double.isNaN(d))
+                .max();
+        return max.isPresent() ? max.getAsDouble() : null;
     }
 
     /** single pass count; mirrors Kotlin's count { ... }. */
