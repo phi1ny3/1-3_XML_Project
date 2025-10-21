@@ -1,3 +1,47 @@
 <resources>
-    <string name="app_name">XMLAlg</string>
+    <!-- App -->
+    <string name="app_name">Oops, All Algorithms!</string>
+
+    <!-- Generic -->
+    <string name="btn_run">Run</string>
+    <string name="error_enter_text">Please enter some text</string>
+    <string name="error_invalid_number">Please enter a valid number</string>
+    <string name="error_nonnegative">Number must be non-negative</string>
+    <string name="error_invalid_csv">Enter a valid comma-separated list of numbers</string>
+
+
+    <!-- Reverse -->
+    <string name="title_reverse">Reverse a String</string>
+    <string name="hint_reverse">hello</string>
+
+    <!-- Factorial -->
+    <string name="title_factorial">Factorial (n!)</string>
+    <string name="hint_factorial">5</string>
+
+    <!-- Palindrome -->
+    <string name="title_palindrome">Check Palindrome</string>
+    <string name="hint_palindrome">Race car</string>
+    <string name="yes_palindrome">Yes, it&#39;s a palindrome!</string>
+    <string name="no_palindrome">No, not a palindrome.</string>
+
+
+    <!-- Max CSV -->
+    <string name="title_max_csv">Find Max Number (CSV)</string>
+    <string name="hint_max_csv">3, 7, 2, 9</string>
+
+    <!-- Count Vowels -->
+    <string name="title_vowels">Count Vowels</string>
+    <string name="hint_vowels">javascript</string>
+
+    <!-- Fibonacci -->
+    <string name="title_fibonacci">Fibonacci Number (n, 0-indexed)</string>
+    <string name="hint_fibonacci">6</string>
+
+    <!-- Sum to N -->
+    <string name="title_sum_to_n">Sum of Numbers 1..N</string>
+    <string name="hint_sum_to_n">10</string>
+
+    <!-- Even/Odd -->
+    <string name="title_even_odd">Even or Odd</string>
+    <string name="hint_even_odd">42</string>
 </resources>

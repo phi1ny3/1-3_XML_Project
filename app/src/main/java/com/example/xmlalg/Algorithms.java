@@ -2,6 +2,7 @@ package com.example.xmlalg;
 
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Objects;
 
 /**
@@ -43,14 +44,16 @@ public final class Algorithms {
     }
 
     /** functional-chain analog using streams; ignores non-numbers gracefully. */
+// inside Algorithms
     public static Double findMaxCsv(String csv) {
         return Arrays.stream(csv.split(","))
                 .map(String::trim)
-                .map(Algorithms::tryParseDouble)   // null if not a number
+                .map(Algorithms::tryParseDouble)
                 .filter(Objects::nonNull)
-                .max(Double::compareTo)
+                .max(Comparator.naturalOrder())   // <- fixes nullability warning
                 .orElse(null);
     }
+
 
     private static Double tryParseDouble(String s) {
         try { return Double.valueOf(s); } catch (NumberFormatException e) { return null; }

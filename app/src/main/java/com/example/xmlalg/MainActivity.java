@@ -2,120 +2,125 @@ package com.example.xmlalg;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.xmlalg.databinding.ActivityMainBinding;
-
+import java.util.function.Function;
 import java.util.function.IntFunction;
 
 /**
- * Keep UI glue thin and obvious. Use ViewBinding for type-safe view access,
- * and a tiny helper to avoid repeating the parse/validate pattern for integer inputs.
+ * Why: keep UI glue simple; no viewbinding. Each card wires input -> algorithm -> output.
+ * Why: split helpers by input type to avoid nullability & parsing mistakes.
  */
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding; // safer than findViewById; fewer null mistakes.
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
 
-        wireEvents();
-    }
+        // ---------- String-based algorithms ----------
+        wireTextAlgorithm(
+                R.id.etReverse, R.id.btnReverse, R.id.tvReverseOut,
+                s -> s.isEmpty() ? getString(R.string.error_enter_text) : Algorithms.reverseString(s)
+        );
 
-    private void wireEvents() {
-        // Reverse
-        binding.btnReverse.setOnClickListener(v -> {
-            final String s = safeText(binding.etReverse);
-            binding.tvReverseOut.setText(
-                    s.isEmpty() ? "Please enter some text." : Algorithms.reverseString(s)
-            );
-        });
+        wireTextAlgorithm(
+                R.id.etPalindrome, R.id.btnPalindrome, R.id.tvPalindromeOut,
+                s -> s.isEmpty()
+                        ? getString(R.string.error_enter_text)
+                        : (Algorithms.isPalindromeNormalized(s)
+                        ? getString(R.string.yes_palindrome)
+                        : getString(R.string.no_palindrome))
+        );
 
-        // Factorial
-        binding.btnFactorial.setOnClickListener(v ->
-                runIntTask(binding.etFactorial, binding.tvFactorialOut, n -> {
-                    if (n < 0) return "Enter a non-negative integer.";
+        wireTextAlgorithm(
+                R.id.etMaxCsv, R.id.btnMaxCsv, R.id.tvMaxCsvOut,
+                s -> {
+                    Double d = Algorithms.findMaxCsv(s);
+                    return d != null ? d.toString() : getString(R.string.error_invalid_csv);
+                }
+        );
+
+        wireTextAlgorithm(
+                R.id.etVowels, R.id.btnVowels, R.id.tvVowelsOut,
+                s -> s.isEmpty() ? getString(R.string.error_enter_text)
+                        : String.valueOf(Algorithms.countVowels(s))
+        );
+
+        // ---------- Integer-based algorithms ----------
+        wireIntAlgorithm(
+                R.id.etFactorial, R.id.btnFactorial, R.id.tvFactorialOut,
+                n -> {
+                    if (n < 0) return getString(R.string.error_nonnegative);
                     return Algorithms.factorialBig(n).toString();
-                })
+                }
         );
 
-        // Palindrome
-        binding.btnPalindrome.setOnClickListener(v -> {
-            final String s = safeText(binding.etPalindrome);
-            binding.tvPalindromeOut.setText(
-                    s.isEmpty()
-                            ? "Please enter some text."
-                            : (Algorithms.isPalindromeNormalized(s)
-                            ? "Yes, it's a palindrome!"
-                            : "No, not a palindrome.")
-            );
-        });
-
-        // Find Max CSV
-        binding.btnMaxCsv.setOnClickListener(v -> {
-            final String csv = safeText(binding.etMaxCsv);
-            final Double d = Algorithms.findMaxCsv(csv);
-            binding.tvMaxCsvOut.setText(
-                    d != null ? d.toString()
-                            : "Please enter a valid comma-separated list of numbers."
-            );
-        });
-
-        // Count Vowels
-        binding.btnVowels.setOnClickListener(v -> {
-            final String s = safeText(binding.etVowels);
-            binding.tvVowelsOut.setText(
-                    s.isEmpty() ? "Please enter some text."
-                            : String.valueOf(Algorithms.countVowels(s))
-            );
-        });
-
-        // Fibonacci nth
-        binding.btnFib.setOnClickListener(v ->
-                runIntTask(binding.etFib, binding.tvFibOut, n -> {
-                    if (n < 0) return "Enter a non-negative integer.";
+        wireIntAlgorithm(
+                R.id.etFib, R.id.btnFib, R.id.tvFibOut,
+                n -> {
+                    if (n < 0) return getString(R.string.error_nonnegative);
                     return String.valueOf(Algorithms.fibonacciNth(n));
-                })
+                }
         );
 
-        // Sum 1..N
-        binding.btnSumToN.setOnClickListener(v ->
-                runIntTask(binding.etSumToN, binding.tvSumToNOut, n -> {
-                    if (n < 0) return "Enter a non-negative integer.";
+        wireIntAlgorithm(
+                R.id.etSumToN, R.id.btnSumToN, R.id.tvSumToNOut,
+                n -> {
+                    if (n < 0) return getString(R.string.error_nonnegative);
                     return String.valueOf(Algorithms.sumToN(n));
-                })
+                }
         );
 
-        // Even / Odd
-        binding.btnEvenOdd.setOnClickListener(v ->
-                runIntTask(binding.etEvenOdd, binding.tvEvenOddOut, Algorithms::evenOrOdd)
+        wireIntAlgorithm(
+                R.id.etEvenOdd, R.id.btnEvenOdd, R.id.tvEvenOddOut,
+                Algorithms::evenOrOdd   // ← replace n -> Algorithms.evenOrOdd(n)
         );
     }
 
-    /** de-duplicate the common parse/validate/write pattern for integer tasks. */
-    private void runIntTask(EditText input, TextView out, IntFunction<String> task) {
-        final Integer n = parseInt(safeText(input));
-        final String msg = (n == null) ? "Enter a whole number (integer)." : task.apply(n);
-        out.setText(msg);
+    // ---------- Helpers ----------
+
+    /** Why: for text algorithms (no parsing). */
+    private void wireTextAlgorithm(int etId, int btnId, int tvId, Function<String, String> logic) {
+        EditText input = findViewById(etId);
+        Button   run   = findViewById(btnId);
+        TextView out   = findViewById(tvId);
+
+        run.setOnClickListener(v -> out.setText(logic.apply(safeText(input))));
+        // replace inline lambda with helper (clears "lambda can be replaced..." lint)
+        setImeDoneAction(input, run);
+    }
+
+    /** Why: for integer algorithms with consistent validation UX. */
+    private void wireIntAlgorithm(int etId, int btnId, int tvId, IntFunction<String> logic) {
+        EditText input = findViewById(etId);
+        Button   run   = findViewById(btnId);
+        TextView out   = findViewById(tvId);
+
+        run.setOnClickListener(v -> {
+            Integer n = parseInt(safeText(input));
+            out.setText(n == null ? getString(R.string.error_invalid_number) : logic.apply(n));
+        });
+        setImeDoneAction(input, run);
+    }
+
+
+    // Helper to make "Done" on keyboard click the same as pressing the Run button
+    private static void setImeDoneAction(EditText input, Button runBtn) {
+        input.setOnEditorActionListener((v, actionId, event) ->
+                actionId == EditorInfo.IME_ACTION_DONE && runBtn.performClick());
     }
 
     private static String safeText(EditText et) {
-        final CharSequence cs = et.getText();
+        CharSequence cs = et.getText();
         return cs == null ? "" : cs.toString().trim();
     }
-
     private static Integer parseInt(String s) {
         if (TextUtils.isEmpty(s)) return null;
-        try {
-            return Integer.parseInt(s);
-        } catch (NumberFormatException e) {
-            return null;
-        }
+        try { return Integer.parseInt(s); } catch (NumberFormatException e) { return null; }
     }
 }
