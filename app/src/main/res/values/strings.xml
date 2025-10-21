@@ -9,7 +9,6 @@
     <string name="error_nonnegative">Number must be non-negative</string>
     <string name="error_invalid_csv">Enter a valid comma-separated list of numbers</string>
 
-
     <!-- Reverse -->
     <string name="title_reverse">Reverse a String</string>
     <string name="hint_reverse">hello</string>

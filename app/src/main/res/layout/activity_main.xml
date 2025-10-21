@@ -5,20 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <!-- Reverse a String -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_reverse"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:paddingBottom="4dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hello">
+            android:hint="@string/hint_reverse">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etReverse"
@@ -34,7 +41,7 @@
             android:id="@+id/btnReverse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run" />
+            android:text="@string/btn_run" />
 
         <TextView
             android:id="@+id/tvReverseOut"
@@ -45,10 +52,18 @@
             tools:text="olleh" />
 
         <!-- Factorial -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_factorial"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="5">
+            android:hint="@string/hint_factorial">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etFactorial"
@@ -64,7 +79,7 @@
             android:id="@+id/btnFactorial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run" />
+            android:text="@string/btn_run" />
 
         <TextView
             android:id="@+id/tvFactorialOut"
@@ -74,10 +89,18 @@
             tools:text="120" />
 
         <!-- Palindrome -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_palindrome"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Race car">
+            android:hint="@string/hint_palindrome">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPalindrome"
@@ -93,7 +116,7 @@
             android:id="@+id/btnPalindrome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run" />
+            android:text="@string/btn_run" />
 
         <TextView
             android:id="@+id/tvPalindromeOut"
@@ -103,10 +126,18 @@
             tools:text="Yes, it's a palindrome!" />
 
         <!-- Find Max CSV -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_max_csv"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="3, 7, 2, 9">
+            android:hint="@string/hint_max_csv">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etMaxCsv"
@@ -122,7 +153,7 @@
             android:id="@+id/btnMaxCsv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run" />
+            android:text="@string/btn_run" />
 
         <TextView
             android:id="@+id/tvMaxCsvOut"
@@ -132,10 +163,18 @@
             tools:text="9" />
 
         <!-- Count Vowels -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_vowels"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="javascript">
+            android:hint="@string/hint_vowels">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etVowels"
@@ -151,7 +190,7 @@
             android:id="@+id/btnVowels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run" />
+            android:text="@string/btn_run" />
 
         <TextView
             android:id="@+id/tvVowelsOut"
@@ -161,10 +200,18 @@
             tools:text="3" />
 
         <!-- Fibonacci nth -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_fibonacci"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="6">
+            android:hint="@string/hint_fibonacci">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etFib"
@@ -180,7 +227,7 @@
             android:id="@+id/btnFib"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run" />
+            android:text="@string/btn_run" />
 
         <TextView
             android:id="@+id/tvFibOut"
@@ -190,10 +237,18 @@
             tools:text="8" />
 
         <!-- Sum 1..N -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_sum_to_n"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="10">
+            android:hint="@string/hint_sum_to_n">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etSumToN"
@@ -209,7 +264,7 @@
             android:id="@+id/btnSumToN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run" />
+            android:text="@string/btn_run" />
 
         <TextView
             android:id="@+id/tvSumToNOut"
@@ -219,10 +274,18 @@
             tools:text="55" />
 
         <!-- Even or Odd -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_even_odd"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="42">
+            android:hint="@string/hint_even_odd">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEvenOdd"
@@ -238,7 +301,7 @@
             android:id="@+id/btnEvenOdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Run" />
+            android:text="@string/btn_run" />
 
         <TextView
             android:id="@+id/tvEvenOddOut"
