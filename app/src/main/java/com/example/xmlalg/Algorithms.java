@@ -3,7 +3,6 @@ package com.example.xmlalg;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.OptionalDouble;
-import java.util.Objects;
 
 /**
  * Pure functions only—keeps algorithms testable and reusable.
