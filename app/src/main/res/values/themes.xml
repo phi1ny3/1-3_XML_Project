@@ -1,34 +1,28 @@
 <resources>
-    <style name="Theme.XMLAlg" parent="Theme.Material3.DayNight.NoActionBar">
-
-        <!-- Brand -->
+    <style name="Theme.XMLAlg" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Basic colors -->
         <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorOnPrimary">@color/color_on_primary</item>
-        <item name="colorPrimaryContainer">@color/color_primary_container</item>
-        <item name="colorOnPrimaryContainer">@color/color_on_primary_container</item>
+        <item name="colorPrimaryDark">@color/color_primary</item>
+        <item name="colorAccent">@color/color_secondary</item>
 
-        <item name="colorSecondary">@color/color_secondary</item>
-        <item name="colorOnSecondary">@color/color_on_secondary</item>
-        <item name="colorSecondaryContainer">@color/color_secondary_container</item>
-        <item name="colorOnSecondaryContainer">@color/color_on_secondary_container</item>
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/color_on_surface</item>
+        <item name="android:textColorSecondary">@color/color_on_surface_variant</item>
 
-        <item name="colorTertiary">@color/color_tertiary</item>
-        <item name="colorOnTertiary">@color/color_on_tertiary</item>
-        <item name="colorTertiaryContainer">@color/color_tertiary_container</item>
-        <item name="colorOnTertiaryContainer">@color/color_on_tertiary_container</item>
+        <!-- Window background -->
+        <item name="android:windowBackground">@color/color_background</item>
 
-        <!-- Surfaces / background -->
-        <item name="android:colorBackground">@color/color_background</item>
-        <item name="colorSurface">@color/color_surface</item>
-        <item name="colorOnSurface">@color/color_on_surface</item>
-        <item name="colorSurfaceVariant">@color/color_surface_variant</item>
-        <item name="colorOnSurfaceVariant">@color/color_on_surface_variant</item>
-        <item name="colorOutline">@color/color_outline</item>
+        <!-- Button style -->
+        <item name="buttonStyle">@style/Widget.XMLAlg.Button</item>
+    </style>
 
-        <!-- Errors -->
-        <item name="colorError">@color/color_error</item>
-        <item name="colorOnError">@color/color_on_error</item>
-        <item name="colorErrorContainer">@color/color_error_container</item>
-        <item name="colorOnErrorContainer">@color/color_on_error_container</item>
+    <!-- Custom button style -->
+    <style name="Widget.XMLAlg.Button" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@color/color_on_primary</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
     </style>
 </resources>

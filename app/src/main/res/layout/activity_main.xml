@@ -10,8 +10,7 @@
 
     <LinearLayout
         android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Widget.XMLAlg.AlgorithmContainer"
         android:orientation="vertical">
 
         <!-- Reverse a String -->
@@ -19,23 +18,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_reverse"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
+            style="@style/TextAppearance.XMLAlg.AlgorithmTitle"
             android:paddingBottom="4dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etReverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_reverse">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etReverse"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_reverse"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btnReverse"
@@ -60,20 +56,17 @@
             android:paddingTop="8dp"
             android:paddingBottom="4dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etFactorial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_factorial">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFactorial"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_factorial"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btnFactorial"
@@ -97,20 +90,17 @@
             android:paddingTop="8dp"
             android:paddingBottom="4dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etPalindrome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_palindrome">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPalindrome"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_palindrome"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btnPalindrome"
@@ -134,20 +124,17 @@
             android:paddingTop="8dp"
             android:paddingBottom="4dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etMaxCsv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_max_csv">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etMaxCsv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_max_csv"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btnMaxCsv"
@@ -171,20 +158,17 @@
             android:paddingTop="8dp"
             android:paddingBottom="4dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etVowels"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_vowels">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etVowels"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_vowels"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btnVowels"
@@ -208,20 +192,17 @@
             android:paddingTop="8dp"
             android:paddingBottom="4dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etFib"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_fibonacci">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFib"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_fibonacci"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btnFib"
@@ -245,20 +226,17 @@
             android:paddingTop="8dp"
             android:paddingBottom="4dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etSumToN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_sum_to_n">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSumToN"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_sum_to_n"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btnSumToN"
@@ -282,20 +260,17 @@
             android:paddingTop="8dp"
             android:paddingBottom="4dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/etEvenOdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_even_odd">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEvenOdd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="@string/hint_even_odd"
+            android:inputType="number"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:padding="12dp"
+            android:background="@drawable/edit_text_background" />
 
         <Button
             android:id="@+id/btnEvenOdd"
@@ -310,5 +285,5 @@
             android:paddingBottom="24dp"
             tools:text="Even" />
 
-    </LinearLayout>
+        </LinearLayout>
 </ScrollView>

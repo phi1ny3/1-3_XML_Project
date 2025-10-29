@@ -11,116 +11,131 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.function.Function;
 import java.util.function.IntFunction;
+import java.util.Optional;
 
-/**
- * Why: keep UI glue simple; no viewbinding. Each card wires input -> algorithm -> output.
- * Why: split helpers by input type to avoid nullability & parsing mistakes.
+/*
+ * Main Activity that displays algorithm cards and wires up their UI interactions.
+ * Each card follows a consistent pattern: input -> algorithm -> output.
  */
 public class MainActivity extends AppCompatActivity {
 
-    @Override protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // ---------- String-based algorithms ----------
+        // Sorted by type of algorithm for easier navigation
         wireTextAlgorithm(
                 R.id.etReverse, R.id.btnReverse, R.id.tvReverseOut,
-                s -> s.isEmpty() ? getString(R.string.error_enter_text) : Algorithms.reverseString(s)
+                text -> Optional.of(text)
+                        .filter(s -> !s.isEmpty())
+                        .map(Algorithms::reverseString)
+                        .orElse(getString(R.string.error_enter_text))
         );
 
         wireTextAlgorithm(
                 R.id.etPalindrome, R.id.btnPalindrome, R.id.tvPalindromeOut,
-                s -> s.isEmpty()
-                        ? getString(R.string.error_enter_text)
-                        : (Algorithms.isPalindromeNormalized(s)
-                        ? getString(R.string.yes_palindrome)
-                        : getString(R.string.no_palindrome))
+                text -> Optional.of(text)
+                        .filter(s -> !s.isEmpty())
+                        .map(s -> Algorithms.isPalindromeNormalized(s)
+                                ? getString(R.string.yes_palindrome)
+                                : getString(R.string.no_palindrome))
+                        .orElse(getString(R.string.error_enter_text))
         );
 
         wireTextAlgorithm(
                 R.id.etMaxCsv, R.id.btnMaxCsv, R.id.tvMaxCsvOut,
-                s -> {
-                    Double d = Algorithms.findMaxCsv(s);
-                    return d != null ? d.toString() : getString(R.string.error_invalid_csv);
-                }
+                text -> Optional.ofNullable(Algorithms.findMaxCsv(text))
+                        .map(Object::toString)
+                        .orElse(getString(R.string.error_invalid_csv))
         );
 
         wireTextAlgorithm(
                 R.id.etVowels, R.id.btnVowels, R.id.tvVowelsOut,
-                s -> s.isEmpty() ? getString(R.string.error_enter_text)
-                        : String.valueOf(Algorithms.countVowels(s))
+                text -> Optional.of(text)
+                        .filter(s -> !s.isEmpty())
+                        .map(s -> String.valueOf(Algorithms.countVowels(s)))
+                        .orElse(getString(R.string.error_enter_text))
         );
 
-        // ---------- Integer-based algorithms ----------
         wireIntAlgorithm(
                 R.id.etFactorial, R.id.btnFactorial, R.id.tvFactorialOut,
-                n -> {
-                    if (n < 0) return getString(R.string.error_nonnegative);
-                    return Algorithms.factorialBig(n).toString();
-                }
+                num -> Optional.of(num)
+                        .filter(n -> n >= 0)
+                        .map(n -> Algorithms.factorialBig(n).toString())
+                        .orElse(getString(R.string.error_nonnegative))
         );
 
         wireIntAlgorithm(
                 R.id.etFib, R.id.btnFib, R.id.tvFibOut,
-                n -> {
-                    if (n < 0) return getString(R.string.error_nonnegative);
-                    return String.valueOf(Algorithms.fibonacciNth(n));
-                }
+                num -> Optional.of(num)
+                        .filter(n -> n >= 0)
+                        .map(n -> String.valueOf(Algorithms.fibonacciNth(n)))
+                        .orElse(getString(R.string.error_nonnegative))
         );
 
         wireIntAlgorithm(
                 R.id.etSumToN, R.id.btnSumToN, R.id.tvSumToNOut,
-                n -> {
-                    if (n < 0) return getString(R.string.error_nonnegative);
-                    return String.valueOf(Algorithms.sumToN(n));
-                }
+                num -> Optional.of(num)
+                        .filter(n -> n >= 0)
+                        .map(n -> String.valueOf(Algorithms.sumToN(n)))
+                        .orElse(getString(R.string.error_nonnegative))
         );
 
         wireIntAlgorithm(
                 R.id.etEvenOdd, R.id.btnEvenOdd, R.id.tvEvenOddOut,
-                Algorithms::evenOrOdd   // ← replace n -> Algorithms.evenOrOdd(n)
+                Algorithms::evenOrOdd
         );
     }
 
-    // ---------- Helpers ----------
+    // Helpers
 
-    /** Why: for text algorithms (no parsing). */
-    private void wireTextAlgorithm(int etId, int btnId, int tvId, Function<String, String> logic) {
-        EditText input = findViewById(etId);
-        Button   run   = findViewById(btnId);
-        TextView out   = findViewById(tvId);
+    /* Wire up a text-based algorithm card's UI components. */
+    private void wireTextAlgorithm(final int etId, final int btnId, final int tvId, final Function<String, String> logic) {
+        final EditText input = findViewById(etId);
+        final Button run = findViewById(btnId);
+        final TextView out = findViewById(tvId);
 
         run.setOnClickListener(v -> out.setText(logic.apply(safeText(input))));
-        // replace inline lambda with helper (clears "lambda can be replaced..." lint)
         setImeDoneAction(input, run);
     }
 
-    /** Why: for integer algorithms with consistent validation UX. */
-    private void wireIntAlgorithm(int etId, int btnId, int tvId, IntFunction<String> logic) {
-        EditText input = findViewById(etId);
-        Button   run   = findViewById(btnId);
-        TextView out   = findViewById(tvId);
+    /* Wire up an integer-based algorithm card's UI components. */
+    private void wireIntAlgorithm(final int etId, final int btnId, final int tvId, final IntFunction<String> logic) {
+        final EditText input = findViewById(etId);
+        final Button run = findViewById(btnId);
+        final TextView out = findViewById(tvId);
 
-        run.setOnClickListener(v -> {
-            Integer n = parseInt(safeText(input));
-            out.setText(n == null ? getString(R.string.error_invalid_number) : logic.apply(n));
-        });
+        run.setOnClickListener(v -> Optional.ofNullable(parseInt(safeText(input)))
+                .map(logic)
+                .ifPresentOrElse(
+                        out::setText,
+                        () -> out.setText(R.string.error_invalid_number)
+                ));
         setImeDoneAction(input, run);
     }
 
-
-    // Helper to make "Done" on keyboard click the same as pressing the Run button
-    private static void setImeDoneAction(EditText input, Button runBtn) {
+    /* Make "Done" on keyboard click behave like pressing the Run button. */
+    private static boolean setImeDoneAction(final EditText input, final Button runBtn) {
         input.setOnEditorActionListener((v, actionId, event) ->
                 actionId == EditorInfo.IME_ACTION_DONE && runBtn.performClick());
+        return true;
     }
 
-    private static String safeText(EditText et) {
-        CharSequence cs = et.getText();
-        return cs == null ? "" : cs.toString().trim();
+    /* Get trimmed text from EditText, never null. */
+    private static String safeText(final EditText et) {
+        return Optional.ofNullable(et.getText())
+                .map(Object::toString)
+                .map(String::trim)
+                .orElse("");
     }
-    private static Integer parseInt(String s) {
+
+    /* Try to parse an integer, returns Optional.empty() if invalid. */
+    private static Integer parseInt(final String s) {
         if (TextUtils.isEmpty(s)) return null;
-        try { return Integer.parseInt(s); } catch (NumberFormatException e) { return null; }
+        try {
+            return Integer.parseInt(s);
+        } catch (final NumberFormatException e) {
+            return null;
+        }
     }
 }
