@@ -97,6 +97,9 @@ public class MainActivity extends AppCompatActivity {
 
         run.setOnClickListener(v -> out.setText(logic.apply(safeText(input))));
         setImeDoneAction(input, run);
+        if (!setImeDoneAction(input, run)) {
+            android.util.Log.w("MainActivity", "Failed to set IME done action for " + etId);
+        }
     }
 
     /* Wire up an integer-based algorithm card's UI components. */
@@ -105,13 +108,16 @@ public class MainActivity extends AppCompatActivity {
         final Button run = findViewById(btnId);
         final TextView out = findViewById(tvId);
 
-        run.setOnClickListener(v -> Optional.ofNullable(parseInt(safeText(input)))
-                .map(logic)
-                .ifPresentOrElse(
-                        out::setText,
-                        () -> out.setText(R.string.error_invalid_number)
-                ));
+        run.setOnClickListener(v -> {
+            String result = Optional.ofNullable(parseInt(safeText(input)))
+                    .map(logic::apply)
+                    .orElse(getString(R.string.error_invalid_number));
+            out.setText(result);
+        });
         setImeDoneAction(input, run);
+        if (!setImeDoneAction(input, run)) {
+            android.util.Log.w("MainActivity", "Failed to set IME done action for " + etId);
+        }
     }
 
     /* Make "Done" on keyboard click behave like pressing the Run button. */
