@@ -8,7 +8,8 @@
     <string name="error_invalid_number">Please enter a valid number</string>
     <string name="error_nonnegative">Number must be non-negative</string>
     <string name="error_invalid_csv">Enter a valid comma-separated list of numbers</string>
-f
+    <string name="hint_placeholder">Enter value…</string>
+    <string name="input_content_description">Algorithm input field</string>
     <!-- Reverse -->
     <string name="title_reverse">Reverse a String</string>
     <string name="hint_reverse">hello</string>

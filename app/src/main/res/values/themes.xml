@@ -1,28 +1,11 @@
 <resources>
-    <style name="Theme.XMLAlg" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <!-- Basic colors -->
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryDark">@color/color_primary</item>
-        <item name="colorAccent">@color/color_secondary</item>
-
-        <!-- Text colors -->
-        <item name="android:textColorPrimary">@color/color_on_surface</item>
-        <item name="android:textColorSecondary">@color/color_on_surface_variant</item>
-
-        <!-- Window background -->
+    <style name="Theme.XMLAlg" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/color_background</item>
-
-        <!-- Button style -->
-        <item name="buttonStyle">@style/Widget.XMLAlg.Button</item>
-    </style>
-
-    <!-- Custom button style -->
-    <style name="Widget.XMLAlg.Button" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/button_background</item>
-        <item name="android:textColor">@color/color_on_primary</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textColor">@color/color_text</item>
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_hover</item>
+        <item name="colorAccent">@color/color_primary</item>
+        <item name="android:buttonStyle">@style/AlgorithmButton</item>
+        <item name="android:editTextStyle">@style/AlgorithmInput</item>
     </style>
 </resources>

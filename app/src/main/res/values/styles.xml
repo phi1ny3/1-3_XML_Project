@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Algorithm section container style -->
-    <style name="Widget.XMLAlg.AlgorithmContainer" parent="android:Widget">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="AlgorithmCard">
         <item name="android:background">@drawable/algorithm_background</item>
+        <item name="android:elevation">4dp</item>
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginLeft">4dp</item>
@@ -12,17 +10,21 @@
         <item name="android:padding">16dp</item>
     </style>
 
-    <!-- Title style for each algorithm block -->
-    <style name="TextAppearance.XMLAlg.AlgorithmTitle" parent="android:TextAppearance">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:textStyle">bold</item>
+    <style name="AlgorithmButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@color/color_on_primary</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">9.6dp</item>
+        <item name="android:paddingBottom">9.6dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:elevation">1dp</item>
     </style>
 
-    <!-- Result text style -->
-    <style name="TextAppearance.XMLAlg.Result" parent="android:TextAppearance">
+    <style name="AlgorithmInput">
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:padding">8dp</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/color_tertiary</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_text</item>
     </style>
 </resources>

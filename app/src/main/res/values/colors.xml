@@ -1,14 +1,24 @@
 <resources>
-    <!-- Colors from algorithms-ui CSS -->
-    <color name="color_primary">#087400</color>
-    <color name="color_primary_hover">#054900</color>
-    <color name="color_on_primary">#FFFFFF</color>
-    <color name="color_background">#ffeada</color>
-    <color name="color_text">#333333</color>
-    <color name="color_surface">#FFFFFF</color>
-    <color name="color_heading">#4a4a4a</color>
-    <color name="color_border">#cccccc</color>
-    <color name="color_result">#5051ac</color>
-    <color name="color_error">#dd3333</color>
-    <color name="color_shadow">#00000022</color>
+    <!-- Matched with algorithms-ui CSS -->
+
+    <!-- Base Theme Colors -->
+    <color name="color_primary">#087400</color>           <!-- Button/AppBar background -->
+    <color name="color_primary_hover">#054900</color>     <!-- Pressed state -->
+    <color name="color_on_primary">#FFFFFF</color>        <!-- Text on primary color -->
+    <color name="color_background">#ffeada</color>        <!-- App background -->
+
+    <!-- Text Colors -->
+    <color name="color_text">#333333</color>             <!-- Body text -->
+    <color name="color_heading">#4a4a4a</color>          <!-- Algorithm titles -->
+    <color name="color_result">#5051ac</color>           <!-- Result text -->
+    <color name="color_error">#dd3333</color>            <!-- Error messages -->
+
+    <!-- UI Element Colors -->
+    <color name="color_surface">#FFFFFF</color>          <!-- Card background -->
+    <color name="color_border">#cccccc</color>           <!-- Input borders -->
+    <color name="color_shadow">#1A000000</color>         <!-- 10% black shadow -->
+
+    <!-- Aliases for Layout -->
+    <color name="color_on_surface">@color/color_heading</color>
+    <color name="color_tertiary">@color/color_result</color>
 </resources>
