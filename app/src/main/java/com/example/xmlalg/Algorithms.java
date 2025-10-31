@@ -3,8 +3,8 @@ package com.example.xmlalg;
 import java.math.BigInteger;
 
 /**
- * Pure functions only—keeps algorithms testable and reusable.
- * No Android/UI dependencies and no global state.
+ * Pure functions only
+ * Less dependencies, minimal
  */
 public final class Algorithms {
     private Algorithms() {}
@@ -13,7 +13,7 @@ public final class Algorithms {
         return new StringBuilder(s).reverse().toString();
     }
 
-    /** avoid overflow (BigInteger) and guard inputs explicitly. */
+    /** avoid overflow (BigInteger) mentioned in feedback from Discord and guard inputs explicitly. */
     public static BigInteger factorialBig(int n) {
         if (n < 0) throw new IllegalArgumentException("n must be non-negative");
         BigInteger acc = BigInteger.ONE;
@@ -23,7 +23,7 @@ public final class Algorithms {
         return acc;
     }
 
-    /** normalize to alphanumeric lowercase; users type punctuation/spaces. */
+    /** normalize to alphanumeric lowercase */
     public static boolean isPalindromeNormalized(String s) {
         StringBuilder filtered = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
@@ -72,7 +72,7 @@ public final class Algorithms {
         return count;
     }
 
-    /** standard iterative Fibonacci with explicit negative guard. */
+    /** Iterative Fibonacci with explicit negative guard. */
     public static long fibonacciNth(int n) {
         if (n < 0) throw new IllegalArgumentException("n must be non-negative");
         if (n < 2) return n;
@@ -85,13 +85,13 @@ public final class Algorithms {
         return b;
     }
 
-    /** O(1) closed form with guard; consistent with other input checks. */
+    /** O(1) closed form with guard */
     public static long sumToN(int n) {
         if (n < 0) throw new IllegalArgumentException("n must be non-negative");
         return (long) n * (n + 1L) / 2L;
     }
 
-    /** bit test mirrors Kotlin's (n and 1) == 0 idiom. */
+    /** bit test for even or odd */
     public static String evenOrOdd(int n) {
         return ((n & 1) == 0) ? "Even" : "Odd";
     }

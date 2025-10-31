@@ -11,7 +11,6 @@ import java.util.Locale;
 
 /*
  * Main Activity that displays algorithm cards and wires up their UI interactions.
- * Each card follows a consistent pattern: input -> algorithm -> output.
  */
 public class MainActivity extends Activity {
 
@@ -128,7 +127,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    /* Get trimmed text from EditText, never null. */
+    /* Get trimmed text from EditText, no nulls */
     private String getSafeText(EditText et) {
         CharSequence cs = et.getText();
         if (cs == null) {
@@ -137,7 +136,7 @@ public class MainActivity extends Activity {
         return cs.toString().trim();
     }
 
-    /* Try to parse an integer, returns null if invalid. */
+    /* Parse an integer, returns null if invalid. */
     private Integer parseIntSafe(String s) {
         if (TextUtils.isEmpty(s)) {
             return null;

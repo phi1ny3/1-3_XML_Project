@@ -1,5 +1,5 @@
 <resources>
-    <!-- Matched with algorithms-ui CSS -->
+    <!-- Consistent with my previous project stylings -->
 
     <!-- Base Theme Colors -->
     <color name="color_primary">#087400</color>           <!-- Button/AppBar background -->
