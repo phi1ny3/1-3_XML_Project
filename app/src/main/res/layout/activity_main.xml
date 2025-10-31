@@ -1,397 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootScroll"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="?android:windowBackground"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <!-- Reverse a String -->
         <LinearLayout
-            style="@style/AlgorithmCard"
+            style="@style/CardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_reverse"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_on_surface"
-                android:paddingBottom="4dp" />
-
+                android:text="@string/title_reverse" />
             <EditText
                 android:id="@+id/etReverse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/hint_reverse"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
-
+                android:inputType="text" />
             <Button
                 android:id="@+id/btnReverse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/btn_run" />
-
             <TextView
                 android:id="@+id/tvReverseOut"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_tertiary"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="4dp"
-                tools:text="olleh" />
-        </LinearLayout>
-
-        <!-- Factorial -->
-        <LinearLayout
-            style="@style/AlgorithmCard"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_factorial"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_on_surface"
-                android:paddingBottom="4dp" />
-
-            <EditText
-                android:id="@+id/etFactorial"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_factorial"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
-
-            <Button
-                android:id="@+id/btnFactorial"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/btn_run" />
-
-            <TextView
-                android:id="@+id/tvFactorialOut"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_tertiary"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="4dp"
-                tools:text="120" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- Palindrome -->
         <LinearLayout
-            style="@style/AlgorithmCard"
+            style="@style/CardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_palindrome"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_on_surface"
-                android:paddingBottom="4dp" />
-
+                android:text="@string/title_palindrome" />
             <EditText
                 android:id="@+id/etPalindrome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/hint_palindrome"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
-
+                android:inputType="text" />
             <Button
                 android:id="@+id/btnPalindrome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/btn_run" />
-
             <TextView
                 android:id="@+id/tvPalindromeOut"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_tertiary"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="4dp"
-                tools:text="Yes, it's a palindrome!" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- Find Max CSV -->
         <LinearLayout
-            style="@style/AlgorithmCard"
+            style="@style/CardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_max_csv"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_on_surface"
-                android:paddingBottom="4dp" />
-
+                android:text="@string/title_max_csv" />
             <EditText
                 android:id="@+id/etMaxCsv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/hint_max_csv"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
-
+                android:inputType="text" />
             <Button
                 android:id="@+id/btnMaxCsv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/btn_run" />
-
             <TextView
                 android:id="@+id/tvMaxCsvOut"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_tertiary"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="4dp"
-                tools:text="9" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- Count Vowels -->
         <LinearLayout
-            style="@style/AlgorithmCard"
+            style="@style/CardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_vowels"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_on_surface"
-                android:paddingBottom="4dp" />
-
+                android:text="@string/title_vowels" />
             <EditText
                 android:id="@+id/etVowels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/hint_vowels"
-                android:inputType="text"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
-
+                android:inputType="text" />
             <Button
                 android:id="@+id/btnVowels"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/btn_run" />
-
             <TextView
                 android:id="@+id/tvVowelsOut"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <!-- Factorial -->
+        <LinearLayout
+            style="@style/CardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_tertiary"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="4dp"
-                tools:text="3" />
+                android:text="@string/title_factorial" />
+            <EditText
+                android:id="@+id/etFactorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/hint_factorial"
+                android:inputType="number" />
+            <Button
+                android:id="@+id/btnFactorial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_run" />
+            <TextView
+                android:id="@+id/tvFactorialOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- Fibonacci nth -->
         <LinearLayout
-            style="@style/AlgorithmCard"
+            style="@style/CardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_fibonacci"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_on_surface"
-                android:paddingBottom="4dp" />
-
+                android:text="@string/title_fibonacci" />
             <EditText
                 android:id="@+id/etFib"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/hint_fibonacci"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
-
+                android:inputType="number" />
             <Button
                 android:id="@+id/btnFib"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/btn_run" />
-
             <TextView
                 android:id="@+id/tvFibOut"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_tertiary"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="4dp"
-                tools:text="8" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- Sum 1..N -->
         <LinearLayout
-            style="@style/AlgorithmCard"
+            style="@style/CardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_sum_to_n"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_on_surface"
-                android:paddingBottom="4dp" />
-
+                android:text="@string/title_sum_to_n" />
             <EditText
                 android:id="@+id/etSumToN"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/hint_sum_to_n"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
-
+                android:inputType="number" />
             <Button
                 android:id="@+id/btnSumToN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/btn_run" />
-
             <TextView
                 android:id="@+id/tvSumToNOut"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_tertiary"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="4dp"
-                tools:text="55" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <!-- Even or Odd -->
         <LinearLayout
-            style="@style/AlgorithmCard"
+            style="@style/CardLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_even_odd"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_on_surface"
-                android:paddingBottom="4dp" />
-
+                android:text="@string/title_even_odd" />
             <EditText
                 android:id="@+id/etEvenOdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:hint="@string/hint_even_odd"
-                android:inputType="number"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:maxLines="1"
-                android:padding="12dp"
-                android:background="@drawable/edit_text_background" />
-
+                android:inputType="number" />
             <Button
                 android:id="@+id/btnEvenOdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/btn_run" />
-
             <TextView
                 android:id="@+id/tvEvenOddOut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/color_tertiary"
-                android:layout_marginTop="8dp"
-                android:paddingBottom="4dp"
-                tools:text="Number is EVEN" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

@@ -1,11 +1,7 @@
 <resources>
-    <style name="Theme.XMLAlg" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.XMLAlg" parent="android:Theme.Light.NoTitleBar">
         <item name="android:windowBackground">@color/color_background</item>
         <item name="android:textColor">@color/color_text</item>
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryDark">@color/color_primary_hover</item>
-        <item name="colorAccent">@color/color_primary</item>
-        <item name="android:buttonStyle">@style/AlgorithmButton</item>
-        <item name="android:editTextStyle">@style/AlgorithmInput</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
     </style>
 </resources>

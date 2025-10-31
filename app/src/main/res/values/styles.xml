@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="AlgorithmCard">
-        <item name="android:background">@drawable/algorithm_background</item>
-        <item name="android:elevation">4dp</item>
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:layout_marginBottom">8dp</item>
-        <item name="android:layout_marginLeft">4dp</item>
-        <item name="android:layout_marginRight">4dp</item>
+    <!-- Card style for algorithm sections -->
+    <style name="CardLayout">
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
         <item name="android:padding">16dp</item>
+        <item name="android:background">@color/color_surface</item>
     </style>
 
-    <style name="AlgorithmButton" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/button_background</item>
+    <!-- Button style -->
+    <style name="ButtonStyle">
+        <item name="android:background">@color/color_primary</item>
         <item name="android:textColor">@color/color_on_primary</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
-        <item name="android:paddingTop">9.6dp</item>
-        <item name="android:paddingBottom">9.6dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:elevation">1dp</item>
-    </style>
-
-    <style name="AlgorithmInput">
-        <item name="android:background">@drawable/edit_text_background</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/color_text</item>
+        <item name="android:padding">12dp</item>
     </style>
 </resources>

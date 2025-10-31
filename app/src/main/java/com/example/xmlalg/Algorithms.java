@@ -1,8 +1,6 @@
 package com.example.xmlalg;
 
 import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.OptionalDouble;
 
 /**
  * Pure functions only—keeps algorithms testable and reusable.
@@ -27,41 +25,51 @@ public final class Algorithms {
 
     /** normalize to alphanumeric lowercase; users type punctuation/spaces. */
     public static boolean isPalindromeNormalized(String s) {
-        final StringBuilder filtered = new StringBuilder();
+        StringBuilder filtered = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
-            final char ch = s.charAt(i);
+            char ch = s.charAt(i);
             if (Character.isLetterOrDigit(ch)) {
                 filtered.append(Character.toLowerCase(ch));
             }
         }
-        int i = 0, j = filtered.length() - 1;
-        while (i < j) {
-            if (filtered.charAt(i) != filtered.charAt(j)) return false;
-            i++; j--;
+        int length = filtered.length();
+        for (int i = 0; i < length / 2; i++) {
+            if (filtered.charAt(i) != filtered.charAt(length - 1 - i)) {
+                return false;
+            }
         }
         return true;
     }
 
-    /** functional-chain analog using streams; ignores non-numbers gracefully. */
-// inside Algorithms
     public static Double findMaxCsv(String csv) {
-        OptionalDouble max = Arrays.stream(csv.split(","))
-                .map(String::trim)
-                .mapToDouble(s -> {
-                    try { return Double.parseDouble(s); }
-                    catch (NumberFormatException e) { return Double.NaN; }
-                })
-                .filter(d -> !Double.isNaN(d))
-                .max();
-        return max.isPresent() ? max.getAsDouble() : null;
+        String[] parts = csv.split(",");
+        double max = -Double.MAX_VALUE;
+        boolean hasValid = false;
+        for (String part : parts) {
+            String trimmed = part.trim();
+            try {
+                double value = Double.parseDouble(trimmed);
+                if (value > max) {
+                    max = value;
+                    hasValid = true;
+                }
+            } catch (NumberFormatException e) {
+                // ignore invalid
+            }
+        }
+        return hasValid ? max : null;
     }
 
-    /** single pass count; mirrors Kotlin's count { ... }. */
     public static int countVowels(String s) {
-        return (int) s.chars()
-                .map(Character::toLowerCase)
-                .filter(c -> "aeiou".indexOf(c) >= 0)
-                .count();
+        String lower = s.toLowerCase();
+        int count = 0;
+        for (int i = 0; i < lower.length(); i++) {
+            char c = lower.charAt(i);
+            if ("aeiou".indexOf(c) >= 0) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /** standard iterative Fibonacci with explicit negative guard. */
